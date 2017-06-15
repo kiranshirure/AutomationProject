@@ -1,0 +1,12 @@
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log*
+*.class
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+AutomationProject.iml
+
