@@ -1,38 +1,67 @@
 package Pages;
 
+import Utils.propertiesReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
-/**
- * Created by user on 14/06/17.
- */
-public class LoginPage {
 
-    private WebDriver driver;
+public class LoginPage extends LoadableComponent<LoginPage> {
+
+private WebDriver driver;
+
+
+    By email = By.name("email");
+    By password = By.name("password");
 
     public LoginPage(WebDriver driver) {
-
-    this.driver = driver;
-
-        if(!driver.getTitle().contains("login")) {
-            driver.get("http://www.phptravels.net/admin");
-        }
+        this.driver = driver;
     }
 
-    public FillDetails incorrectLogin(String username, String password) {
+    public void openURL() {
 
-        driver.findElement(By.name("email")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
+        driver.get(propertiesReader.getProperty("config", "url"));
 
-        driver.findElement(By.linkText("Login")).click();
-        return new FillDetails(driver);
+
     }
 
-    public HomePage correctLogin(String username, String password) {
 
-        driver.findElement(By.name("email")).sendKeys(username);
-        driver.findElement(By.name("password")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@value='Log In']")).click();
-        return new HomePage(driver);
+    public void setEmail() {
+
+        driver.findElement(email).sendKeys(propertiesReader.getProperty("config", "email"));
+
+
+    }
+
+
+    public void setPassword() {
+
+        driver.findElement(password).sendKeys(propertiesReader.getProperty("config", "password"));
+
+    }
+
+
+    public void clickLogin() {
+
+        driver.findElement(By.cssSelector("[data-style]")).click();
+
+
+    }
+
+
+
+
+
+    @Override
+    protected void load() {
+
+       return;
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+       return;
     }
 }

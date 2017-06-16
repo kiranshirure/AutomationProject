@@ -2,8 +2,12 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.LoadableComponent;
+import org.testng.Assert;
 
-public class HomePage {
+
+
+public class HomePage extends LoadableComponent<HomePage> {
 
     private WebDriver driver;
 
@@ -14,15 +18,32 @@ public class HomePage {
 
     }
 
-    public LoginPage logOut() {
+   public void clickOnAccounts(){
 
-        driver.findElement(By.partialLinkText("Log Out")).click();
-        return new LoginPage(driver);
+        driver.findElement(By.cssSelector("#social-sidebar-menu > li:nth-of-type(4) > a > span")).click();
+
+   }
+
+   public void clickOnAdmin(){
+
+       driver.findElement(By.cssSelector("#Accounts > li:nth-of-type(1) > a")).click();
+
+
+   }
+
+   public void clickOnAddButton(){
+
+       driver.findElement(By.className("add_button")).click();
+   }
+
+    @Override
+    protected void load() {
+
+        return;
     }
 
-    public String getWelcomeString() {
-
-        return driver.findElement(By.className("smallText")).getText();
+    @Override
+    protected void isLoaded() throws Error {
+      return;
     }
-
 }

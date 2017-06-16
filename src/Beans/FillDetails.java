@@ -1,14 +1,10 @@
-package Pages;
+package Beans;
 
 
-import Beans.UserDetails;
-import Utils.propertiesReader;
-import org.junit.Assert;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 
 public class FillDetails extends LoadableComponent<FillDetails> {
 
@@ -25,9 +21,6 @@ public class FillDetails extends LoadableComponent<FillDetails> {
     By address2 = By.name("address2");
 
 
-
-
-
     public FillDetails(WebDriver driver) {
         this.driver = driver;
     }
@@ -35,12 +28,12 @@ public class FillDetails extends LoadableComponent<FillDetails> {
 
     @Override
     protected void isLoaded() throws Error {
-        driver.getPageSource().contains("Admin");
+        return;
     }
 
     @Override
     protected void load() {
-        // TODO Auto-generated method stub
+        return;
 
     }
 
@@ -53,9 +46,9 @@ public class FillDetails extends LoadableComponent<FillDetails> {
         driver.findElement(lastName).sendKeys(ud.getLastName());
         driver.findElement(email).sendKeys(ud.getEmail());
         driver.findElement(password).sendKeys(ud.getPassword());
-       driver.findElement(mobilenumber).sendKeys(ud.getMobileNo());
+        driver.findElement(mobilenumber).sendKeys(ud.getMobileNo());
 
-         Select dropdown = new Select(driver.findElement(country));
+        Select dropdown = new Select(driver.findElement(country));
         dropdown.selectByValue(ud.getCountry());
 
         driver.findElement(address1).sendKeys(ud.getAddress1());
@@ -63,11 +56,9 @@ public class FillDetails extends LoadableComponent<FillDetails> {
 
         driver.findElement(By.xpath("//*[@id='content']/form/div/div[2]/div/div[17]/div[1]/div/div[2]/ul/li[3]/label/div/ins")).click();
 
-         driver.findElement(By.xpath("//*[@id='content']/form/div/div[3]/button")).click();
+        driver.findElement(By.xpath("//*[@id='content']/form/div/div[3]/button")).click();
 
     }
-
-
 
 
 }

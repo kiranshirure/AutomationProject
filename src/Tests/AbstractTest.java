@@ -1,13 +1,8 @@
 package Tests;
 
-import Pages.FillDetails;
-import Pages.HomePage;
-import Pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
@@ -20,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
         protected static WebDriverWait wait;
 
-        @BeforeClass
+        @BeforeSuite
         public static void setUp() throws Exception {
 
             System.setProperty("webdriver.chrome.driver", "/home/user/Desktop/chromedriver/");
@@ -36,7 +31,7 @@ import java.util.concurrent.TimeUnit;
             driver.navigate().refresh();
         }
 
-        @AfterClass
+        @AfterSuite
         public static void tearDown() throws Exception {
             driver.close();
             driver.quit();
