@@ -3,8 +3,6 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.LoadableComponent;
-import org.testng.Assert;
-
 
 
 public class HomePage extends LoadableComponent<HomePage> {
@@ -18,23 +16,23 @@ public class HomePage extends LoadableComponent<HomePage> {
 
     }
 
-   public void clickOnAccounts(){
+    public void clickOnAccounts() {
 
         driver.findElement(By.cssSelector("#social-sidebar-menu > li:nth-of-type(4) > a > span")).click();
 
-   }
+    }
 
-   public void clickOnAdmin(){
+    public void clickOnAdmin() {
 
-       driver.findElement(By.cssSelector("#Accounts > li:nth-of-type(1) > a")).click();
+        driver.findElement(By.cssSelector("#Accounts > li:nth-of-type(1) > a")).click();
 
 
-   }
+    }
 
-   public void clickOnAddButton(){
+    public void clickOnAddButton() {
 
-       driver.findElement(By.className("add_button")).click();
-   }
+        driver.findElement(By.className("add_button")).click();
+    }
 
     @Override
     protected void load() {
@@ -44,6 +42,6 @@ public class HomePage extends LoadableComponent<HomePage> {
 
     @Override
     protected void isLoaded() throws Error {
-      return;
+        return;
     }
 }

@@ -19,7 +19,8 @@ public class FillDetails extends LoadableComponent<FillDetails> {
     By country = By.name("country");
     By address1 = By.name("address1");
     By address2 = By.name("address2");
-
+    By checkbox = By.xpath("//*[@id='content']/form/div/div[2]/div/div[17]/div[1]/div/div[2]/ul/li[3]/label/div/ins");
+    By submitButton = By.cssSelector("#content > form > div > div:nth-of-type(3) > button");
 
     public FillDetails(WebDriver driver) {
         this.driver = driver;
@@ -53,10 +54,8 @@ public class FillDetails extends LoadableComponent<FillDetails> {
 
         driver.findElement(address1).sendKeys(ud.getAddress1());
         driver.findElement(address2).sendKeys(ud.getAddress2());
-
-        driver.findElement(By.xpath("//*[@id='content']/form/div/div[2]/div/div[17]/div[1]/div/div[2]/ul/li[3]/label/div/ins")).click();
-
-        driver.findElement(By.xpath("//*[@id='content']/form/div/div[3]/button")).click();
+        driver.findElement(checkbox).click();
+        driver.findElement(submitButton).click();
 
     }
 

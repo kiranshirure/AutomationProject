@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
             driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS);
             wait  = new WebDriverWait(driver,16);
         }
-
         @BeforeMethod
         public void setUpBefore() throws Exception {
             driver.manage().deleteAllCookies();
